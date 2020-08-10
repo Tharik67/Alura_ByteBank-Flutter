@@ -10,7 +10,11 @@ class ByteBankApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green[900],
           title: Text("ByteBank"),
+        ),
+        body: Column(
+          children: [Image.asset('images/bytebank_logo.png')],
         ),
       ),
     );
