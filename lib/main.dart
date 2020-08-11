@@ -1,3 +1,4 @@
+import 'package:alura_bytebank/screens/contact_form.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/dashboard.dart';
@@ -12,13 +13,17 @@ class ByteBankApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.green[900],
+        textTheme: ThemeData.dark().textTheme,
+        primaryTextTheme: ThemeData.dark().primaryTextTheme,
+        accentTextTheme: ThemeData.dark().accentTextTheme,
+        textSelectionColor: Colors.blue[700],
         accentColor: Colors.blueAccent[700],
         scaffoldBackgroundColor: Colors.grey[900],
         buttonTheme: ButtonThemeData(
-            buttonColor: Colors.blueAccent[700],
+            buttonColor: Colors.greenAccent[700],
             textTheme: ButtonTextTheme.primary),
       ),
-      home: Dashboard(),
+      home: ContactForm(),
     );
   }
 }
