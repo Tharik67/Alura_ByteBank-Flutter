@@ -8,6 +8,10 @@ class ContactsList extends StatelessWidget {
         title: Text('Contatos'),
       ),
       body: ListView(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => null,
+          child: Icon(Icons.add),
+        ),
         children: [
           Column(
             children: [
@@ -32,10 +36,6 @@ class ContactsList extends StatelessWidget {
             ],
           )
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => null,
-        child: Icon(Icons.add),
       ),
     );
   }
