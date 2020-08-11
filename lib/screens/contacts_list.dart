@@ -4,14 +4,14 @@ class ContactsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => null,
+        child: Icon(Icons.add),
+      ),
       appBar: AppBar(
         title: Text('Contatos'),
       ),
       body: ListView(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => null,
-          child: Icon(Icons.add),
-        ),
         children: [
           Column(
             children: [
