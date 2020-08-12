@@ -6,8 +6,13 @@ class ContactsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (BuildContext context) => ContactForm())),
+        onPressed: () => Navigator.of(context)
+            .push(
+              MaterialPageRoute(
+                builder: (BuildContext context) => ContactForm(),
+              ),
+            )
+            .then((value) => debugPrint(value.toString())),
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
