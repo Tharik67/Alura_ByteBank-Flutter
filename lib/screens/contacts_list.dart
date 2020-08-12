@@ -18,14 +18,19 @@ class ContactsList extends StatelessWidget {
               Card(
                 margin: EdgeInsets.all(16),
                 child: ListTile(
-                  onTap: () => null,
                   contentPadding: EdgeInsets.symmetric(horizontal: 16),
                   dense: false,
                   title: Text(
                     "CAIO",
-                    style: TextStyle(fontSize: 24),
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Theme.of(context).scaffoldBackgroundColor),
                   ),
-                  subtitle: Text("conta :10000-2"),
+                  subtitle: Text(
+                    "conta :10000-2",
+                    style: TextStyle(
+                        color: Theme.of(context).scaffoldBackgroundColor),
+                  ),
                   leading: Icon(
                     Icons.person,
                     size: 48,
