@@ -1,3 +1,4 @@
+import 'package:alura_bytebank/screens/contact_form.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatelessWidget {
@@ -5,7 +6,8 @@ class ContactsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => null,
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => ContactForm())),
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
