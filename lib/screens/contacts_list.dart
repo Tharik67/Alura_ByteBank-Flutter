@@ -24,6 +24,7 @@ class _ContactsListState extends State<ContactsList> {
             setState(() {});
           });
         },
+        // ignore: todo
         // TODO Para atualizar a pagina quando voltar, adicionar o then((value) {setState(() {});}); no navigator
 
         child: Icon(Icons.add),
