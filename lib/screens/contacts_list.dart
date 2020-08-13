@@ -3,7 +3,12 @@ import 'package:alura_bytebank/models/contact.dart';
 import 'package:alura_bytebank/screens/contact_form.dart';
 import 'package:flutter/material.dart';
 
-class ContactsList extends StatelessWidget {
+class ContactsList extends StatefulWidget {
+  @override
+  _ContactsListState createState() => _ContactsListState();
+}
+
+class _ContactsListState extends State<ContactsList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +16,16 @@ class ContactsList extends StatelessWidget {
         onPressed: () {
           return Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => ContactForm(),
+              builder: (context) {
+                return ContactForm();
+              },
             ),
-          );
+          ).then((value) {
+            setState(() {});
+          });
         },
+        // TODO Para atualizar a pagina quando voltar, adicionar o then((value) {setState(() {});}); no navigator
+
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
