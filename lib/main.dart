@@ -1,5 +1,3 @@
-import 'package:alura_bytebank/database/app_database.dart';
-import 'package:alura_bytebank/models/contact.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/dashboard.dart';

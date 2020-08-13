@@ -5,13 +5,19 @@ import 'package:sqflite/sqflite.dart';
 Future<Database> createDatabase() {
   return getDatabasesPath().then((dbPath) {
     final String path = join(dbPath, 'bytebank.db');
-    return openDatabase(path, onCreate: (db, version) {
-      db.execute('''CREATE TABLE contacts(
+    return openDatabase(
+      path,
+      onCreate: (db, version) {
+        db.execute('''CREATE TABLE contacts(
             id INTEGER PRIMARY KEY,
             name TEXT,
             accont_number INTEGER
             )''');
-    }, version: 1);
+      },
+      version: 1,
+      // onDowngrade: onDatabaseDowngradeDelete,
+      // Apaga os dados do banco
+    );
   });
 }
 

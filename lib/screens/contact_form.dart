@@ -1,3 +1,4 @@
+import 'package:alura_bytebank/database/app_database.dart';
 import 'package:alura_bytebank/models/contact.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +57,8 @@ class _ContactFormState extends State<ContactForm> {
                     final int conta =
                         int.tryParse(_accountNumberController.text);
                     final Contact newContact = Contact(0, name, conta);
-                    Navigator.pop(context, newContact);
+                    saveContact(newContact)
+                        .then((id) => Navigator.pop(context));
                   },
                 ),
               ),

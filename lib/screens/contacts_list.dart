@@ -8,13 +8,13 @@ class ContactsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context)
-            .push(
-              MaterialPageRoute(
-                builder: (BuildContext context) => ContactForm(),
-              ),
-            )
-            .then((value) => debugPrint(value.toString())),
+        onPressed: () {
+          return Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => ContactForm(),
+            ),
+          );
+        },
         child: Icon(Icons.add),
       ),
       appBar: AppBar(
@@ -22,10 +22,7 @@ class ContactsList extends StatelessWidget {
       ),
       body: FutureBuilder<List<Contact>>(
           initialData: List(),
-          future: Future.delayed(Duration(seconds: 1)).then((value) {
-            return findAll();
-          } // TODO RETIRAR O DELAY
-              ),
+          future: findAll(),
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
