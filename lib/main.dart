@@ -1,9 +1,14 @@
+import 'package:alura_bytebank/database/app_database.dart';
+import 'package:alura_bytebank/models/contact.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/dashboard.dart';
 
 void main() {
   runApp(ByteBankApp());
+  saveContact(Contact(3, 'name', 1000)).then((id) {
+    findAll().then((contacts) => debugPrint(contacts.toString()));
+  });
 }
 
 class ByteBankApp extends StatelessWidget {
