@@ -6,15 +6,13 @@ import 'screens/dashboard.dart';
 
 void main() {
   runApp(ByteBankApp());
-  saveContact(Contact(3, 'name', 1000)).then((id) {
-    findAll().then((contacts) => debugPrint(contacts.toString()));
-  });
 }
 
 class ByteBankApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'ByteBank',
       theme: ThemeData(
         primaryColor: Colors.green[900],
         textTheme: ThemeData.dark().textTheme,
