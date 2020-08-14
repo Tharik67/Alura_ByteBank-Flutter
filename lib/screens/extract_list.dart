@@ -1,4 +1,3 @@
-import 'package:alura_bytebank/models/contact.dart';
 import 'package:alura_bytebank/models/trasaction.dart';
 import 'package:flutter/material.dart';
 
