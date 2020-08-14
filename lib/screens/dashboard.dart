@@ -1,4 +1,5 @@
 import 'package:alura_bytebank/screens/contacts_list.dart';
+import 'package:alura_bytebank/screens/extract_list.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -50,12 +51,11 @@ class Dashboard extends StatelessWidget {
   }
 
   void _showExtrato(BuildContext context) {
-    print('Extrato');
-    // Navigator.of(context).push(
-    //   MaterialPageRoute(
-    //     builder: (context) => ContactsList(),
-    //   ),
-    // );
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => TransactionsList(),
+      ),
+    );
   }
 }
 
