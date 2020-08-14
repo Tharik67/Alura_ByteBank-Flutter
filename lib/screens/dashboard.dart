@@ -64,7 +64,9 @@ class _FeatureIten extends StatelessWidget {
   final IconData icone;
   final Function onClick;
 
-  const _FeatureIten(this.name, this.icone, {@required this.onClick});
+  const _FeatureIten(this.name, this.icone, {@required this.onClick})
+      : assert(icone != null),
+        assert(onClick != null);
 
   @override
   Widget build(BuildContext context) {
