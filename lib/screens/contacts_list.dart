@@ -93,19 +93,16 @@ class _ContactIten extends StatelessWidget {
           contact.name,
           style: TextStyle(
             fontSize: 24,
-            color: Theme.of(context).scaffoldBackgroundColor,
           ),
         ),
         subtitle: Text(
           contact.accountNumber.toString(),
-          style: TextStyle(
-            color: Theme.of(context).scaffoldBackgroundColor,
-          ),
+          style: TextStyle(),
         ),
         leading: Icon(
           Icons.person,
           size: 48,
-          color: Theme.of(context).primaryColor,
+          color: Colors.greenAccent[700],
         ),
       ),
     );
