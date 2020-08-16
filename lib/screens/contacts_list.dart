@@ -2,6 +2,7 @@ import 'package:alura_bytebank/components/progress.dart';
 import 'package:alura_bytebank/database/dao/contact_dao.dart';
 import 'package:alura_bytebank/models/contact.dart';
 import 'package:alura_bytebank/screens/contact_form.dart';
+import 'package:alura_bytebank/screens/transaction_form.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatefulWidget {
@@ -55,7 +56,14 @@ class _ContactsListState extends State<ContactsList> {
                   padding: EdgeInsets.all(16),
                   itemBuilder: (context, index) {
                     final Contact contact = listContact[index];
-                    return _ContactIten(contact);
+                    return _ContactIten(
+                      contact,
+                      onClick: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => TransactionForm(contact),
+                        ),
+                      ),
+                    );
                   },
                   itemCount: listContact.length,
                 );
@@ -69,8 +77,9 @@ class _ContactsListState extends State<ContactsList> {
 
 class _ContactIten extends StatelessWidget {
   final Contact contact;
+  final Function onClick;
 
-  const _ContactIten(this.contact);
+  const _ContactIten(this.contact, {@required this.onClick});
 
   @override
   Widget build(BuildContext context) {
@@ -78,6 +87,7 @@ class _ContactIten extends StatelessWidget {
       color: Colors.grey[300],
       margin: EdgeInsets.all(8),
       child: ListTile(
+        onTap: onClick,
         contentPadding: EdgeInsets.symmetric(horizontal: 16),
         dense: false,
         title: Text(

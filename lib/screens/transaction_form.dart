@@ -1,3 +1,4 @@
+import 'package:alura_bytebank/http/webclient.dart';
 import 'package:alura_bytebank/models/contact.dart';
 import 'package:alura_bytebank/models/trasaction.dart';
 import 'package:flutter/material.dart';
@@ -46,8 +47,14 @@ class _TransactionFormState extends State<TransactionForm> {
                 padding: const EdgeInsets.only(top: 16.0),
                 child: TextField(
                   controller: _valueController,
-                  style: TextStyle(fontSize: 24.0),
-                  decoration: InputDecoration(labelText: 'Value'),
+                  style: TextStyle(
+                    fontSize: 24.0,
+                  ),
+                  decoration: InputDecoration(
+                      enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.grey[300])),
+                      labelText: 'Value',
+                      labelStyle: TextStyle(color: Colors.grey[300])),
                   keyboardType: TextInputType.numberWithOptions(decimal: true),
                 ),
               ),
@@ -62,6 +69,12 @@ class _TransactionFormState extends State<TransactionForm> {
                           double.tryParse(_valueController.text);
                       final transactionCreated =
                           Transaction(value, widget.contact);
+
+                      save(transactionCreated).then((transaction) {
+                        if (transaction != null) {
+                          Navigator.pop(context);
+                        }
+                      });
                     },
                   ),
                 ),
