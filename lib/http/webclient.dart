@@ -32,7 +32,7 @@ Future<List<Transaction>> findAll() async {
     interceptors: [LoggingInterceptor()],
   );
   final Response response =
-      await client.get('http://192.168.1.104:8080/transactions');
+      await client.get('http://192.168.1.102:8080/transactions');
   final List<dynamic> decodedJson = jsonDecode(response.body);
   final List<Transaction> transactions = List();
   for (Map<String, dynamic> element in decodedJson) {
