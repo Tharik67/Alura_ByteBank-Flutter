@@ -1,9 +1,11 @@
+import 'package:alura_bytebank/http/webclient.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/dashboard.dart';
 
 void main() {
   runApp(ByteBankApp());
+  findAll().then((transaction) => print('transacoes $transaction'));
 }
 
 class ByteBankApp extends StatelessWidget {
@@ -12,6 +14,7 @@ class ByteBankApp extends StatelessWidget {
     return MaterialApp(
       title: 'ByteBank',
       theme: ThemeData(
+        cardTheme: ThemeData.dark().cardTheme,
         primaryColor: Colors.green[900],
         textTheme: ThemeData.dark().textTheme,
         primaryTextTheme: ThemeData.dark().primaryTextTheme,
