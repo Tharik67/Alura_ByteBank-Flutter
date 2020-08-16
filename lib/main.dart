@@ -1,11 +1,9 @@
-import 'package:alura_bytebank/http/webclient.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/dashboard.dart';
 
 void main() {
   runApp(ByteBankApp());
-  findAll().then((transaction) => print('transacoes $transaction'));
 }
 
 class ByteBankApp extends StatelessWidget {
