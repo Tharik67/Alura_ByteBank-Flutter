@@ -1,3 +1,4 @@
+import 'package:alura_bytebank/components/progress.dart';
 import 'package:alura_bytebank/database/dao/contact_dao.dart';
 import 'package:alura_bytebank/models/contact.dart';
 import 'package:alura_bytebank/screens/contact_form.dart';
@@ -42,19 +43,8 @@ class _ContactsListState extends State<ContactsList> {
                 break;
 
               case ConnectionState.waiting:
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      CircularProgressIndicator(),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text('Loading...'),
-                      ),
-                    ],
-                  ),
-                );
+                return Progress();
+                break;
 
               case ConnectionState.active:
                 break;
@@ -85,6 +75,7 @@ class _ContactIten extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.grey[300],
       margin: EdgeInsets.all(8),
       child: ListTile(
         contentPadding: EdgeInsets.symmetric(horizontal: 16),
@@ -92,12 +83,16 @@ class _ContactIten extends StatelessWidget {
         title: Text(
           contact.name,
           style: TextStyle(
+            fontWeight: FontWeight.bold,
             fontSize: 24,
+            color: Theme.of(context).scaffoldBackgroundColor,
           ),
         ),
         subtitle: Text(
           contact.accountNumber.toString(),
-          style: TextStyle(),
+          style: TextStyle(
+            color: Theme.of(context).scaffoldBackgroundColor,
+          ),
         ),
         leading: Icon(
           Icons.person,
