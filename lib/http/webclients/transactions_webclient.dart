@@ -26,11 +26,12 @@ class TransactionsWebClient {
 
     return Transaction.fromJson(jsonDecode(response.body));
   }
-
+  /*
   List<Transaction> _toTransactions(Response response) {
     // final List<Transaction> transactions = List();
     // for (Map<String, dynamic> element in decodedJson) {
     //   transactions.add(Transaction.fromJson(element));
     // }
   }
+  */
 }
