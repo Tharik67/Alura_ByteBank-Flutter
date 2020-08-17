@@ -1,11 +1,13 @@
 import 'package:alura_bytebank/components/centered_message.dart';
 import 'package:alura_bytebank/components/progress.dart';
-import 'package:alura_bytebank/http/webclient.dart';
+import 'package:alura_bytebank/http/webclients/transactions_webclient.dart';
 import 'package:alura_bytebank/models/trasaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class TransactionsList extends StatelessWidget {
+  final TransactionsWebClient _webClient = TransactionsWebClient();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +15,7 @@ class TransactionsList extends StatelessWidget {
         title: Text('Transactions'),
       ),
       body: FutureBuilder<List<Transaction>>(
-          future: findAll(),
+          future: _webClient.findAll(),
           //Future.delayed(Duration(seconds: 0)).then((value) => findAll()),
           //usado para testar o progress
           builder: (context, snapshot) {
