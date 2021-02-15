@@ -1,6 +1,7 @@
 # alura_bytebank
 
-A new Flutter project.
+Projeto Flutter de aprendizado com os cursos de formação da Alura
+Projeto ByteBank, app de banco onde o usuario salva contatos e pode acessar seu estrato online
 
 ## Getting Started
 
