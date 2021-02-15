@@ -1,3 +1,4 @@
+import 'package:alura_bytebank/components/transaction_auth_dialog.dart';
 import 'package:alura_bytebank/http/webclients/transactions_webclient.dart';
 import 'package:alura_bytebank/models/contact.dart';
 import 'package:alura_bytebank/models/trasaction.dart';
@@ -64,18 +65,25 @@ class _TransactionFormState extends State<TransactionForm> {
                 child: SizedBox(
                   width: double.maxFinite,
                   child: RaisedButton(
-                    child: Text('Transfer'),
+                    child: Text('Transferir'),
                     onPressed: () {
                       final double value =
                           double.tryParse(_valueController.text);
                       final transactionCreated =
                           Transaction(value, widget.contact);
-
-                      _webClient.save(transactionCreated).then((transaction) {
-                        if (transaction != null) {
-                          Navigator.pop(context);
-                        }
-                      });
+                      showDialog(
+                          context: context,
+                          builder: (context) => TransactionAuthDialog(
+                                onConfirm: (password) {
+                                  _webClient
+                                      .save(transactionCreated, password)
+                                      .then((transaction) {
+                                    if (transaction != null) {
+                                      Navigator.pop(context);
+                                    }
+                                  });
+                                },
+                              ));
                     },
                   ),
                 ),
